@@ -41,9 +41,3 @@ Dev Begun
 
 0.1.1 4/1/08
 Added to SVN
-
-test2 wtf man
-
-OK THIS IS THE ALMOST FINAL TEST
-
-FINAL TEST!
