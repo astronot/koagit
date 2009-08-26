@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VDaemon Tutorial - Step 5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="vd.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p align="right"><a href="http://www.x-code.com/vdaemon_web_form_validation.php" target="_blank">VDaemon
+    PHP Library</a> |
+  <a href="http://www.x-code.com/vdaemon_dreamweaver_extension.php" target="_blank">VDaemon
+  Extension</a> | <a href="index.htm" target="_parent">Table of Contents</a></p>
+
+<h1><span class="section">VDaemon Tutorial</span><br>
+Step 5 - Displaying Error Messages</h1>
+<p>During this step you will study how to display error messages to the user. To accomplish
+  this, <a href="ref_summary.htm">vlsummary</a> and <a href="ref_label.htm">vllabel</a> VDaemon
+  custom tags are used.</p>
+<p>The vlsummary custom tag allows you to summarize the error messages from all validators
+  on a form in a single location. The error message displayed in the summary for each validator
+  on the form is specified by the &quot;errmsg&quot; attribute of the corresponding validator.
+  You can
+also specify a custom title in the heading section of the summary by setting the &quot;headertext&quot;
+attribute:<br>
+<b>&lt;vlsummary class=&quot;defaultErr&quot; headertext=&quot;Error(s) found:&quot;&gt;</b></p>
+<p>You may need to display an error message or highlight some text at or near the location
+  where an input validation error has occurred. The &quot;vllabel&quot; custom tag provides
+  you an easy yet powerful way to accomplish this. Each &quot;vllabel&quot; tag
+  references one or more vlvalidator tags. The logical
+&quot;AND&quot; is applied to the vlvalidator references to determine how the &quot;vllabel&quot; tag
+will be rendered on
+a
+page.
+For instance, the state of the following vllabel depends on the &quot;EmailReq&quot; and &quot;Email&quot; validators
+that you created on <a href="tut_step4.htm">step 4</a>:<br>
+<b>&lt;vllabel validators=&quot;EmailReq,Email&quot; class=&quot;default&quot; errclass=&quot;defaultErr&quot;&gt;Your
+E-mail:&lt;/vllabel&gt;</b></p>
+<p>After adding error messaging elements to your page, the source code should appear as shown
+  below.</p>
+<pre class="sample">&lt;?php include('vdaemon/vdaemon.php'); ?&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;VDaemon Validation Sample&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+&lt;!--
+.default
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold
+}
+.defaultErr
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FF0000
+}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;default&quot;&gt;Quick contact form.&lt;/p&gt;
+&lt;form method=&quot;POST&quot; name=&quot;QContact&quot; runat=&quot;vdaemon&quot; action=&quot;process.php&quot;&gt;
+<b>  &lt;vlsummary class=&quot;defaultErr&quot; headertext=&quot;Error(s) found:&quot;&gt;</b>
+  &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;100&quot;&gt;
+        <b>&lt;vllabel class=&quot;default&quot; errclass=&quot;defaultErr&quot; validators=&quot;NameReq&quot;&gt;Your Name:&lt;/vllabel&gt;</b>
+      &lt;/td&gt;
+      &lt;td width=&quot;200&quot;&gt;
+        &lt;input name=&quot;Name&quot; type=&quot;text&quot; size=&quot;25&quot;&gt;
+        &lt;vlvalidator name=&quot;NameReq&quot; type=&quot;required&quot; control=&quot;Name&quot; errmsg=&quot;Name required&quot;&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;100&quot;&gt;
+        <b>&lt;vllabel class=&quot;default&quot; errclass=&quot;defaultErr&quot; validators=&quot;EmailReq,Email&quot;&gt;Your E-mail:&lt;/vllabel&gt;</b>
+      &lt;/td&gt;
+      &lt;td width=&quot;200&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;Email&quot; size=&quot;25&quot;&gt;
+        &lt;vlvalidator name=&quot;EmailReq&quot; type=&quot;required&quot; control=&quot;Email&quot; errmsg=&quot;E-mail required&quot;&gt;
+        &lt;vlvalidator name=&quot;Email&quot; type=&quot;email&quot; control=&quot;Email&quot; errmsg=&quot;Invalid E-mail&quot;&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        <b>&lt;vllabel class=&quot;default&quot; errclass=&quot;defaultErr&quot; validators=&quot;MessageReq&quot;&gt;Your Message/Question:&lt;/vllabel&gt;</b>
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        &lt;textarea name=&quot;Message&quot; cols=&quot;40&quot; rows=&quot;7&quot; wrap=&quot;virtual&quot;&gt;&lt;/textarea&gt;
+        &lt;vlvalidator name=&quot;MessageReq&quot; type=&quot;required&quot; control=&quot;Message&quot; errmsg=&quot;Message required&quot;&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Send&quot;&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>Continue to <a href="tut_step6.htm">Step 6</a></p>
+<p>&nbsp;</p>
+</body>
+</html>

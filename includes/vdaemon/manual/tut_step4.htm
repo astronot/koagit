@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VDaemon Tutorial - Step 4</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="vd.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p align="right"><a href="http://www.x-code.com/vdaemon_web_form_validation.php" target="_blank">VDaemon
+    PHP Library</a> |
+  <a href="http://www.x-code.com/vdaemon_dreamweaver_extension.php" target="_blank">VDaemon
+  Extension</a> | <a href="index.htm" target="_parent">Table of Contents</a></p>
+
+<h1><span class="section">VDaemon Tutorial</span><br>
+Step 4 - Adding Validation Elements</h1>
+<p>Now you will learn how to add validation rules to the form. All validation is defined by
+  the <a href="ref_validator.htm">vlvalidator</a> and <a href="ref_group.htm">vlgroup</a> VDaemon
+  custom tags. This tags has many attributes which allow you to define all of the common validation
+  types as well as create custom validation logic. To learn all of the
+  validator features please <a href="ref_validator.htm">see
+  the reference</a>. In this tutorial the following types of validation are used:</p>
+<p> - &quot;required&quot; is most common type. It indicates that a value must be entered in the input
+    element for it to pass validation. Let's examine the first occurence of the &quot;required&quot; validator:<br>
+  <b>&lt;vlvalidator name=&quot;NameReq&quot; type=&quot;required&quot; control=&quot;Name&quot; errmsg=&quot;Name  required&quot;&gt;</b><br>
+The validator attributes shown above are common to all of the types of validators. Each validator
+must have a unique
+name (name=&quot;NameReq&quot;). The validation type is defined by &quot;type&quot; attribute
+(type=&quot;required&quot;).
+The &quot;control&quot; attribute
+specifies the input element to validate (control=&quot;Name&quot;).
+Lastly, the &quot;errmsg&quot; attribute contains error message that will be displayed on the
+form page should the validation
+test for this vaildator fail.</p>
+<p>- &quot;email&quot; validator is used to determine whether the value of the associated input
+element is a properly formatted E-mail address:<br>
+<b>&lt;vlvalidator type=&quot;email&quot; name=&quot;Email&quot; control=&quot;Email&quot; errmsg=&quot;Invalid
+E-mail&quot;&gt;</b></p>
+<p>After adding validation elements your page source code should look as shown below.</p>
+<pre class="sample">&lt;?php include('vdaemon/vdaemon.php'); ?&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;VDaemon Validation Sample&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+&lt;!--
+.default
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold
+}
+.defaultErr
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FF0000
+}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;default&quot;&gt;Quick contact form.&lt;/p&gt;
+&lt;form method=&quot;POST&quot; name=&quot;QContact&quot; runat=&quot;vdaemon&quot; action=&quot;process.php&quot;&gt;
+  &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;100&quot;&gt;
+        Your Name:
+      &lt;/td&gt;
+      &lt;td width=&quot;200&quot;&gt;
+        &lt;input name=&quot;Name&quot; type=&quot;text&quot; size=&quot;25&quot;&gt;
+        <b>&lt;vlvalidator name=&quot;NameReq&quot; type=&quot;required&quot; control=&quot;Name&quot; errmsg=&quot;Name required&quot;&gt;</b>
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;100&quot;&gt;
+        Your E-mail:
+      &lt;/td&gt;
+      &lt;td width=&quot;200&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;Email&quot; size=&quot;25&quot;&gt;
+        <b>&lt;vlvalidator name=&quot;EmailReq&quot; type=&quot;required&quot; control=&quot;Email&quot; errmsg=&quot;E-mail required&quot;&gt;</b>
+        <b>&lt;vlvalidator name=&quot;Email&quot; type=&quot;email&quot; control=&quot;Email&quot; errmsg=&quot;Invalid E-mail&quot;&gt;</b>
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        Your Message/Question:
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        &lt;textarea name=&quot;Message&quot; cols=&quot;40&quot; rows=&quot;7&quot; wrap=&quot;virtual&quot;&gt;&lt;/textarea&gt;
+        <b>&lt;vlvalidator name=&quot;MessageReq&quot; type=&quot;required&quot; control=&quot;Message&quot; errmsg=&quot;Message required&quot;&gt;</b>
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Send&quot;&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>Continue to <a href="tut_step5.htm">Step 5</a></p>
+<p>&nbsp;</p>
+</body>
+</html>

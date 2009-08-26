@@ -1,0 +1,63 @@
+body {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+	background-color:#CCCCCC;
+	color: #000000;
+	font-size: 12px
+}
+
+td {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+.tdgrad {
+filter:progid:DXImageTransform.Microsoft.Gradient
+      (GradientType=0,StartColorStr='#E9F0F8',EndColorStr='#538CC6');
+}
+th {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}.Heading {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+.folder { background: url(plus.gif)  no-repeat; float: left; height: 12px; width: 13px; padding-right: 1px }
+
+.error {color: #FF0000}
+
+input.text {
+font: 400 12px Verdana, Geneva, Arial, helvetica, sans-serif;
+color: black;
+border: 1px #8FB4DA;
+background: #E9F0F8;
+}
+
+select.Menu{
+  font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+  background-color:#E9F0F8;
+  color: #000000;
+  font-size:   11px;
+}
+
+input.button {
+color:#000000;
+   font: 400 12px Verdana, Geneva, Arial, helvetica, sans-serif;
+   background-color:#538CC6;
+   border:1px solid;
+   border-top-color:#CBDCEE;
+   border-left-color:#CBDCEE;
+   border-right-color:#538CC6;
+   border-bottom-color:#538CC6;
+   filter:progid:DXImageTransform.Microsoft.Gradient
+      (GradientType=0,StartColorStr='#CBDCEE',EndColorStr='#538CC6');}
+	  
+input.buttonhov{
+   border-top-color:#538CC6;
+   border-left-color:#538CC6;
+   border-right-color:#CBDCEE;
+   border-bottom-color:#CBDCEE;}
+
+textarea.box {
+font: 400 12px Verdana, Geneva, Arial, helvetica, sans-serif;
+color: black;
+border: 1px #538CC6;
+background: #E9F0F8;
+}

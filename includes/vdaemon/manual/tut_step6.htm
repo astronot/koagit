@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VDaemon Tutorial - Step 6</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="vd.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p align="right"><a href="http://www.x-code.com/vdaemon_web_form_validation.php" target="_blank">VDaemon
+    PHP Library</a> |
+  <a href="http://www.x-code.com/vdaemon_dreamweaver_extension.php" target="_blank">VDaemon
+  Extension</a> | <a href="index.htm" target="_parent">Table of Contents</a></p>
+
+<h1><span class="section">VDaemon Tutorial</span><br>
+Step 6 - Form processing page</h1>
+<p>During this step we will create script that will process submitted form data. In fact, you
+  just need to add a couple of lines of VDaemon specific code into common page you use for
+  form processing. In  the very beginning of  page you should include vdaemon.php file. No
+  custom code should appear before that include. The only code which can go before is defining
+  of <b>VDAEMON_PARSE</b> constant. Set it to false to say VDaemon do not parse any form on
+  current page. Typically you need it if current page doesn't contain any vdaemon form.</p>
+<pre class="sample"><b>&lt;?php
+define('VDAEMON_PARSE', false);
+include('vdaemon.php');
+
+// Your code goes here
+// For example you can send submited data to your e-mail
+?&gt;</b>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Validation Sample&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+&lt;!--
+.default
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold
+}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;default&quot;&gt;Your data successfuly processed&lt;/p&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;
+  &lt;tr&gt;
+    &lt;td width=&quot;100&quot; class=&quot;default&quot&gt;
+       Your Name:
+    &lt;/td&gt;
+    &lt;td width=&quot;300&quot class=&quot;default&quot;&gt;
+      &lt;?php echo $_POST['Name']; ?&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td width=&quot;100&quot; class=&quot;default&quot&gt;
+      Your E-mail:
+    &lt;/td&gt;
+    &lt;td width=&quot;300&quot; class=&quot;default&quot&gt;
+      &lt;?php echo $_POST['Email']; ?&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td width=&quot;100&quot; class=&quot;default&quot&gt;
+      Your Message:
+    &lt;/td&gt;
+    &lt;td width=&quot;300&quot; class=&quot;default&quot&gt;
+      &lt;?php echo $_POST['Message']; ?&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>Congratulations! You have completed the tutorial and we hope that you are ready to create
+  your own form validation solutions using VDaemon. Do not forget to visit the <a href="http://www.x-code.com/">X-code</a> web
+site from time to time for updates to the VDaemon family of products.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

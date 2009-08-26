@@ -1,0 +1,43 @@
+0.2.2 6/17/09
+Added edit name and cc fields to enterproject and enterproposal forms
+Added pre-fill for req_email fields (@krechojard.com)
+
+0.2.1 3/09/09
+Changed all SMTP settings to localhost
+
+0.2.0 2/23/09
+Bug fixes
+
+0.1.9 1/12/09
+Fixed submit confirmation
+
+0.1.8 12/4/08
+Added KOA prefix to all Organization/Project Manager fields
+
+0.1.7 8/12/08
+Completed BG DB and forms
+Implemented form submit confirmation
+Implemented detail pages for project and proposal
+
+0.1.6 7/8/08
+Removed adminindex
+Prepped for live
+
+0.1.5 6/30/08
+Implemented Project database
+Disabled Archive, edit functions
+Misc Additions and Edits
+
+0.1.4 6/17/08
+Implemented Proposal database
+Implemented Edit/List/Search for Proposal
+
+0.1.3 6/9/08
+Completed field update for new project and proposal.
+Initial creation of new billing group.
+
+0.1.2 6/5/08
+Dev Begun
+
+0.1.1 4/1/08
+Added to SVN

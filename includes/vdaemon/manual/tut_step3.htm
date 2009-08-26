@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VDaemon Tutorial - Step 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="vd.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p align="right"><a href="http://www.x-code.com/vdaemon_web_form_validation.php" target="_blank">VDaemon
+    PHP Library</a> |
+  <a href="http://www.x-code.com/vdaemon_dreamweaver_extension.php" target="_blank">VDaemon
+  Extension</a> | <a href="index.htm" target="_parent">Table of Contents</a></p>
+
+<h1><span class="section">VDaemon Tutorial</span><br>
+Step 3 - Setting Up Form Tag</h1>
+<p>The VDaemon form tag is different from the HTML form tag because it has some additional
+  attributes.
+The following attributes must be specified for each VDaemon form tag:</p>
+<p>- The runat attribute must be set to &quot;vdaemon&quot; (runat=&quot;vdaemon&quot;).  This means that the form will be processed by VDaemon.<br>
+  - The name attribute must be specified (e.g. name=&quot;QContact&quot;).<br>
+  - The method attribute must be set to &quot;post&quot;.</p>
+<p>You should edit the form tag on your page to fulfill the requirements listed above. A VDaemon form tag
+  is shown in the code below.</p>
+<pre class="sample">&lt;?php include('vdaemon/vdaemon.php'); ?&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;VDaemon Validation Sample&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+&lt;!--
+.default
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold
+}
+.defaultErr
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FF0000
+}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;default&quot;&gt;Quick contact form.&lt;/p&gt;
+<b>&lt;form method=&quot;POST&quot; name=&quot;QContact&quot; runat=&quot;vdaemon&quot; action=&quot;process.php&quot;&gt;</b>
+  &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;100&quot;&gt;
+        Your Name:
+      &lt;/td&gt;
+      &lt;td width=&quot;200&quot;&gt;
+        &lt;input name=&quot;Name&quot; type=&quot;text&quot; size=&quot;25&quot;&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;100&quot;&gt;
+        Your E-mail:
+      &lt;/td&gt;
+      &lt;td width=&quot;200&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;Email&quot; size=&quot;25&quot;&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        Your Message/Question:
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        &lt;textarea name=&quot;Message&quot; cols=&quot;40&quot; rows=&quot;7&quot; wrap=&quot;virtual&quot;&gt;&lt;/textarea&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot;&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Send&quot;&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>Continue to <a href="tut_step4.htm">Step 4</a></p>
+<p>&nbsp;</p>
+</body>
+</html>

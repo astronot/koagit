@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VDaemon Setup</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link href="vd.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p align="right"><a href="http://www.x-code.com/vdaemon_web_form_validation.php" target="_blank">VDaemon
+    PHP Library</a> |
+  <a href="http://www.x-code.com/vdaemon_dreamweaver_extension.php" target="_blank">VDaemon
+  Extension</a> | <a href="index.htm" target="_parent">Table of Contents</a></p>
+
+<h1><span class="section">VDaemon User Guide</span><br>
+  VDaemon Setup</h1>
+<p>Before you begin use VDaemon you need to setup it properly.</p>
+<h2>Installation</h2>
+<p>VDaemon comes in zip archive vdaemon.zip. To install VDaemon unpack it to some folder on
+  your web server. It's recommended to unpack it into &quot;&lt;website_root&gt;/vdaemon&quot; folder,
+in this case installation is completed.</p>
+<p>If you unpacked into folder with other name, you
+  need
+  to
+  make
+  some changes to <b>config.php</b> file which can be found in above folder. You should specify
+  path to <b>vdaemon.js</b> file by changing &quot;PATH_TO_VDAEMON_JS&quot; constant, for example,
+  if you unpacked into &quot;&lt;website_root&gt;/scripts/validation&quot; folder, where &lt;website_root&gt; is
+  root folder of
+your web site, constant declaration should look like:</p>
+<p>define('PATH_TO_VDAEMON_JS', '/scripts/validation/vdaemon.js');</p>
+<h2>Configuration</h2>
+<p>VDaemon configuration options are located in the <b>config.php</b> file in VDaemon installation
+  folder:</p>
+<p><b>VDAEMON_POST_SECURITY</b> - defines VDaemon's behavior in case of POST request. If form data
+  has been sent by POST method but VDaemonValidators variable that defines rules of form validation
+  is missing then VDaemon behavior depends on VDAEMON_POST_SECURITY option. If VDAEMON_POST_SECURITY
+  is true then VDaemon will generate error and stop, otherwise VDaemon will skip validation and 
+  behave like in case of GET request.<br>
+You can set this option for each specific page (define statement should be placed before VDaemon
+include like shown below):<br>
+  define('VDAEMON_POST_SECURITY', false);<br>
+include('vdaemon'php'); </p>
+<p><b>PATH_TO_VDAEMON_JS</b> - defines path from
+    your web site root to vdaemon.js file - client-side validation script.</p>
+<p><b>VDAEMON_DELIMITER</b> - In case your form contains several input elements with the same name
+  ending with '[]', after submission PHP makes array from that elements values: $_POST['elements_name']
+  == array('value1',
+  'value2',
+  'value3' ...). VDaemon validators can't validate array type values. Instead VDaemon validates
+  string that is made by joining array elements with delimiter specified by this constant,
+  i.e. string that calculated as: join(VDAEMON_DELIMITER, $_POST['elements_name']). For instance,
+  if delimiter is &quot;~&quot; (default), the string will be: value1~value2~value3...</p>
+<p><b>VDAEMON_ENCRYPTION</b> (VDaemon Secure only) - if set to true VDaemon Secure packs and encrypts
+  information about form validation rules, otherwise works like usual VDaemon (no encryption).</p>
+<p><b>$sVDaemonSecurityKey</b> (VDaemon Secure only) - your secret key for encription. It can be
+  string of any length. IMPORTANT: change default key before start using VDaemon Secure!</p>
+<p>&nbsp; </p>
+</body>
+</html>
